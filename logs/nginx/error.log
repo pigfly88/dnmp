@@ -1,0 +1,48 @@
+2020/06/24 06:46:31 [emerg] 1#1: host not found in upstream "dpd-php" in /etc/nginx/conf.d/local.dnmp-demo.com.conf:7
+2020/06/24 09:34:04 [notice] 24#24: signal process started
+2020/07/09 02:55:26 [error] 6#6: *1 "/var/www/bwoil-php/Sass/backend/web/index.php" is not found (2: No such file or directory), client: 172.18.0.1, server: local.sass.com, request: "GET / HTTP/1.1", host: "local.sass.com"
+2020/07/09 02:55:26 [error] 6#6: *1 open() "/var/www/bwoil-php/Sass/backend/web/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: local.sass.com, request: "GET /favicon.ico HTTP/1.1", host: "local.sass.com", referrer: "http://local.sass.com/"
+2020/07/09 02:56:07 [error] 6#6: *3 open() "/var/www/dnmp-demo/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: local.dnmp-demo.com, request: "GET /favicon.ico HTTP/1.1", host: "127.0.0.1", referrer: "http://127.0.0.1/"
+2020/07/09 02:57:07 [error] 6#6: *3 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: local.dnmp-demo.com, request: "GET /phpinfo.php HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "127.0.0.1"
+2020/07/09 03:00:50 [error] 6#6: *8 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: local.dnmp-demo.com, request: "GET /phpinfo.php HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "127.0.0.1"
+2020/07/09 03:05:43 [error] 6#6: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: local.dnmp-demo.com, request: "GET /phpinfo.php HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "127.0.0.1"
+2020/07/09 03:05:44 [error] 6#6: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: local.dnmp-demo.com, request: "GET /phpinfo.php HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "127.0.0.1"
+2020/07/09 03:05:45 [error] 6#6: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: local.dnmp-demo.com, request: "GET /phpinfo.php HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "127.0.0.1"
+2020/07/09 03:05:45 [error] 6#6: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: local.dnmp-demo.com, request: "GET /phpinfo.php HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "127.0.0.1"
+2020/07/09 03:05:45 [error] 6#6: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: local.dnmp-demo.com, request: "GET /phpinfo.php HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "127.0.0.1"
+2020/07/09 03:05:54 [error] 6#6: *18 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: local.dnmp-demo.com, request: "GET /phpinfo.php HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "localhost"
+2020/07/09 03:05:54 [error] 6#6: *18 open() "/var/www/dnmp-demo/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: local.dnmp-demo.com, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/phpinfo.php"
+2020/07/09 03:06:01 [error] 6#6: *21 open() "/var/www/bwoil-php/Sass/backend/web/site/index" failed (2: No such file or directory), client: 172.18.0.1, server: local.sass.com, request: "GET /site/index HTTP/1.1", host: "local.sass.com"
+2020/07/09 03:17:53 [notice] 24#24: signal process started
+2020/07/09 03:22:17 [error] 6#6: *4 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/bwoil-php/saas/backend/web/index.php on line 2. in /var/www/bwoil-php/saas/backend/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/bwoil-php/saas/backend/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/bwoil-php/saas/backend/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/bwoil-php/saas/backend/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_name(): Cannot change session name when headers already sent in /var/www/bwoil-php/saas/backend/vendor/yiisoft/yii2/web/Session.php:326
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_na" while reading upstream, client: 10.1.0.1, server: local.sass.com, request: "GET /index.php HTTP/1.1", upstream: "fastcgi://10.1.0.3:9000", host: "127.0.0.1:8088"
+2020/07/09 03:51:07 [error] 6#6: *4 open() "/var/www/laravel-gostart/public/user" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:53:55 [error] 6#6: *6 open() "/var/www/laravel-gostart/public/user" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:53:57 [error] 6#6: *6 open() "/var/www/laravel-gostart/public/user" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:55:15 [notice] 7#7: signal process started
+2020/07/09 03:55:26 [error] 13#13: *8 open() "/var/www/laravel-gostart/public/user" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:55:27 [error] 13#13: *8 open() "/var/www/laravel-gostart/public/user" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:55:28 [error] 13#13: *8 open() "/var/www/laravel-gostart/public/user" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:55:28 [error] 13#13: *8 open() "/var/www/laravel-gostart/public/user" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:55:28 [error] 13#13: *8 open() "/var/www/laravel-gostart/public/user" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:55:28 [error] 13#13: *8 open() "/var/www/laravel-gostart/public/user" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:55:28 [error] 13#13: *8 open() "/var/www/laravel-gostart/public/user" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:56:15 [error] 13#13: *8 open() "/var/www/laravel-gostart/public/foo" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /foo HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:56:18 [error] 13#13: *8 open() "/var/www/laravel-gostart/public/foo" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /foo HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:56:40 [error] 6#6: *1 open() "/var/www/laravel-gostart/public/foo" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /foo HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 03:56:42 [error] 6#6: *1 open() "/var/www/laravel-gostart/public/foo" failed (2: No such file or directory), client: 10.1.0.1, server: local.lv.com, request: "GET /foo HTTP/1.1", host: "127.0.0.1:8088"
+2020/07/09 04:00:31 [notice] 15#15: signal process started
+2020/07/09 06:04:53 [warn] 21#21: *13 an upstream response is buffered to a temporary file /var/cache/nginx/fastcgi_temp/1/00/0000000001 while reading upstream, client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", upstream: "fastcgi://10.1.0.3:9000", host: "127.0.0.1:8088"
+2020/07/09 06:07:04 [warn] 21#21: *20 an upstream response is buffered to a temporary file /var/cache/nginx/fastcgi_temp/2/00/0000000002 while reading upstream, client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", upstream: "fastcgi://10.1.0.3:9000", host: "127.0.0.1:8088"
+2020/07/09 06:25:46 [warn] 21#21: *40 an upstream response is buffered to a temporary file /var/cache/nginx/fastcgi_temp/3/00/0000000003 while reading upstream, client: 10.1.0.1, server: local.lv.com, request: "GET /user HTTP/1.1", upstream: "fastcgi://10.1.0.3:9000", host: "127.0.0.1:8088"
+2020/07/09 06:40:50 [warn] 21#21: *43 an upstream response is buffered to a temporary file /var/cache/nginx/fastcgi_temp/4/00/0000000004 while reading upstream, client: 10.1.0.1, server: local.lv.com, request: "GET /user?_method=POST HTTP/1.1", upstream: "fastcgi://10.1.0.3:9000", host: "127.0.0.1:8088"
