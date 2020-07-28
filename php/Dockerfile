@@ -64,6 +64,6 @@ Run curl -sS https://getcomposer.org/installer | php \
 # Install composer deps
 # ADD . /var/www/swoft
 
-RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
-    && composer install \
-    && composer clearcache
+RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+#    && composer install \
+#    && composer clearcache

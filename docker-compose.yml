@@ -27,7 +27,8 @@ services:
       - TZ=Asia/Shanghai
     working_dir: /var/www/
     networks:
-      - extnetwork
+      extnetwork:
+        ipv4_address: 10.1.0.101
   mysql:
     image: mysql:5.7
     container_name: mysql
