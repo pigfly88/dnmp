@@ -22,37 +22,40 @@ RUN apt-get update \
         libjpeg-dev \
         libpng-dev \
         libfreetype6-dev \
+		libicu-dev \
 # php.ini
 	&& cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini \
 # Install PHP extensions
     && docker-php-ext-install \
-       bcmath gd pdo_mysql mbstring sockets zip sysvmsg sysvsem sysvshm \
+       bcmath gd pdo_mysql mbstring sockets zip sysvmsg sysvsem sysvshm intl \
 # Clean apt cache
     && rm -rf /var/lib/apt/lists/*
 
 # Install composer
-Run curl -sS https://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/composer \
-    && composer self-update --clean-backups \
+#Run curl -sS https://getcomposer.org/installer | php \
+#    && mv composer.phar /usr/local/bin/composer \
+#    && composer self-update --clean-backups \
+
 # Install redis extension
-    && wget http://pecl.php.net/get/redis-${PHPREDIS_VERSION}.tgz -O /tmp/redis.tar.tgz \
+Run wget http://pecl.php.net/get/redis-${PHPREDIS_VERSION}.tgz -O /tmp/redis.tar.tgz \
     && pecl install /tmp/redis.tar.tgz \
     && rm -rf /tmp/redis.tar.tgz \
     && docker-php-ext-enable redis \
+
 # Install swoole extension
-    && wget https://github.com/swoole/swoole-src/archive/v${SWOOLE_VERSION}.tar.gz -O swoole.tar.gz \
-    && mkdir -p swoole \
-    && tar -xf swoole.tar.gz -C swoole --strip-components=1 \
-    && rm swoole.tar.gz \
-    && ( \
-        cd swoole \
-        && phpize \
-        && ./configure --enable-mysqlnd --enable-sockets --enable-openssl --enable-http2 \
-        && make -j$(nproc) \
-        && make install \
-    ) \
-    && rm -r swoole \
-    && docker-php-ext-enable swoole \
+#    && wget https://github.com/swoole/swoole-src/archive/v${SWOOLE_VERSION}.tar.gz -O swoole.tar.gz \
+#    && mkdir -p swoole \
+#    && tar -xf swoole.tar.gz -C swoole --strip-components=1 \
+#    && rm swoole.tar.gz \
+#    && ( \
+#        cd swoole \
+#        && phpize \
+#        && ./configure --enable-mysqlnd --enable-sockets --enable-openssl --enable-http2 \
+#        && make -j$(nproc) \
+#        && make install \
+#    ) \
+#    && rm -r swoole \
+#    && docker-php-ext-enable swoole \
 # Clear dev deps
     && apt-get clean \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
@@ -61,9 +64,6 @@ Run curl -sS https://getcomposer.org/installer | php \
     && echo "${TIMEZONE}" > /etc/timezone \
     && echo "[Date]\ndate.timezone=${TIMEZONE}" > /usr/local/etc/php/conf.d/timezone.ini
 
-# Install composer deps
-# ADD . /var/www/swoft
-
-RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+#RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 #    && composer install \
 #    && composer clearcache
