@@ -1,4 +1,5 @@
 FROM php:8.0-fpm
+run sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 # Version
 ENV PHPREDIS_VERSION 5.2.2
@@ -12,9 +13,8 @@ ENV APP_ENV=${app_env:-"test"} \
     COMPOSER_ALLOW_SUPERUSER=1
 
 # Libs -y --no-install-recommends
-#RUN apt-get update \
-    #&& apt-get install -y \
-        #curl wget git zip unzip less vim procps lsof tcpdump htop openssl net-tools iputils-ping \
+RUN apt-get update \
+    && apt-get install -y curl wget lsof tcpdump htop openssl net-tools iputils-ping libpng-dev graphviz
         #libz-dev \
         #libssl-dev \
         #libnghttp2-dev \
@@ -23,15 +23,16 @@ ENV APP_ENV=${app_env:-"test"} \
         #libpng-dev \
         #libfreetype6-dev \
 		#libicu-dev \
-# php.ini
-    RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
-#	RUN cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini \
 
 # Install PHP extensions
 COPY install-php-extensions /usr/local/bin
+
+RUN pecl install xhprof-2.3.9 \
+    && docker-php-ext-enable xhprof
+
 RUN docker-php-ext-install -j$(nproc) bcmath pdo_mysql \
-    #&& docker-php-ext-install \
        #bcmath gd pdo_mysql mbstring sockets zip sysvmsg sysvsem sysvshm intl \
+
 # Clean apt cache
     && rm -rf /var/lib/apt/lists/*
 
@@ -66,7 +67,8 @@ RUN docker-php-ext-install -j$(nproc) bcmath pdo_mysql \
 # Clear dev deps
 #    && apt-get clean \
 #    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+
 # Timezone
-    RUN cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
+RUN cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
     && echo "${TIMEZONE}" > /etc/timezone \
     && echo "[Date]\ndate.timezone=${TIMEZONE}" > /usr/local/etc/php/conf.d/timezone.ini
